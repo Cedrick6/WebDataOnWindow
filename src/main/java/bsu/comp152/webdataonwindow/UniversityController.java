@@ -17,9 +17,9 @@ import java.util.ResourceBundle;
 
 public class UniversityController implements Initializable {
     @FXML
-    private TextField nameField;
+    private TextField NameField;
     @FXML
-    private TextField universityCountryField;
+    private TextField UniversityCountryField;
     @FXML
     private TextField websiteDisplayField;
     @FXML
@@ -56,7 +56,9 @@ public class UniversityController implements Initializable {
         ListControl.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<DataHandler.UniversityDataType>() {
             @Override
             public void changed(ObservableValue<? extends DataHandler.UniversityDataType> observable, DataHandler.UniversityDataType oldValue, DataHandler.UniversityDataType newValue) {
-
+                NameField.setText(newValue.name);
+                UniversityCountryField.setText(newValue.country);
+                websiteDisplayField.setText(newValue.web_pages.toString());
             }
         });
     }
